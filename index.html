@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор любви</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffcccb;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            margin-top: 50px;
+            background: white;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #ff4081;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e91e63;
+        }
+        #result {
+            font-size: 22px;
+            color: #d63384;
+            margin-top: 20px;
+        }
+        #jamalImage {
+            display: none;
+            margin-top: 20px;
+            width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            margin-top: auto;
+            padding: 15px;
+            font-size: 18px;
+            color: white;
+            background-color: #e91e63;
+        }
+    </style>
+</head>
+<body>
+    <h1>Калькулятор любви 💘</h1>
+    <div class="container">
+        <p>Введите имя партнера и узнайте ваш уровень любви!</p>
+        <input type="text" id="partnerName" placeholder="Имя партнера">
+        <button onclick="calculateLove()">Посчитать</button>
+        <p id="result"></p>
+        <img id="jamalImage" src="jamal.jpg" alt="Фото Джамала">
+    </div>
+
+    <footer>
+        Совет дня: не держи обиду на любимых ❤️
+    </footer>
+    
+    <script>
+        function calculateLove() {
+            let partnerName = document.getElementById("partnerName").value.trim().toLowerCase();
+
+            if (partnerName === "") {
+                document.getElementById("result").textContent = "Введите имя партнера!";
+                document.getElementById("jamalImage").style.display = "none";
+                return;
+            }
+
+            if (partnerName === "джамал") {
+                document.getElementById("result").textContent = "Джамал виноват, но как он тебя любит и готов показать это 16.02 в 12:00 💖";
+                document.getElementById("jamalImage").style.display = "block";
+            } else {
+                const messages = [
+                    "Ты принцесса, а он не твой принц",
+                    "Ты заслуживаешь лучшего",
+                    "Он не твое",
+                    "Ты сокровище, а он бармалей",
+                    "РЕД ФЛАГ",
+                    "Не достоин, прости лучше настоящую свою любовь, он сожалеет"
+                ];
+                
+                let randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                document.getElementById("result").textContent = randomMessage;
+                document.getElementById("jamalImage").style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
